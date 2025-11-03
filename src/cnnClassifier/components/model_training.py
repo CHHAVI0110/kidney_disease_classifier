@@ -153,8 +153,7 @@ class Training:
         # Progressive unfreezing schedule (layers, learning_rate)
         unfreeze_schedule = [
             (10, 1e-4),   # Phase 1
-            (20, 5e-5),   # Phase 2
-            (40, 1e-5),   # Phase 3
+            (20, 5e-5),   
         ]
 
         history = None

@@ -114,10 +114,12 @@ def get_size(path: Path) -> int:
     return f"~ {size_in_kb} KB"
 
 def decodeImage(imgstring, fileName):
+    if "," in imgstring:
+        imgstring = imgstring.split(",")[-1]  # strip metadata if present
     imgdata = base64.b64decode(imgstring)
     with open(fileName, 'wb') as f:
         f.write(imgdata)
-        f.close()
+
         
 def encodeImageIntoBase64(croppedImagePath):
     with open(croppedImagePath, "rb") as f:

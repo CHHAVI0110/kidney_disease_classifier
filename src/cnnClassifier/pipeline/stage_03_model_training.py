@@ -9,17 +9,15 @@ class ModelTrainingPipeline:
         pass
     
     def main(self):
+        
         config = ConfigurationManager()
         training_config = config.get_training_config()
         training = Training(config=training_config)
-        
-        # Load the base model
-        model = training.get_base_model()
-
-        # Unfreeze top layers for fine-tuning
-        training.unfreeze_top_layers()
-
-        # Start training
+        training.get_base_model()
+        training.unfreeze_top_layers(num_layers=training_config.params_fine_tune_last_n)
+        training.train_valid_generator()
+        history = training.train()
+        training.save_model(training_config.trained_model_path, training.model)
         training.train()
 
 if __name__ == "__main__":

@@ -9,8 +9,8 @@ WEIGHTS: imagenet             # use pretrained ImageNet weights
 # Training parameters
 # ==========================
 CLASSES: 4                    # number of classes (set according to your dataset)
-LEARNING_RATE: 0.00005  # base learning rate for fine-tuning
-FREEZE_TILL: 120          # how many layers to freeze initially
+LEARNING_RATE: 0.0001 # base learning rate for fine-tuning
+FREEZE_TILL: 100          # how many layers to freeze initially
 FINE_TUNE_LAST_N: 40      # unfreeze last N layers for fine-tuning
 EPOCHS: 20               # total number of training epochs (use with EarlyStopping)
 BATCH_SIZE: 16            # batch size for training
@@ -26,6 +26,6 @@ LABEL_SMOOTHING: 0.1          # soft labels to avoid overconfidence
 # ==========================
 # Model architecture
 # ==========================
-DENSE_UNITS: 512            # dense layer size before final softmax
-OPTIMIZER: "adamw"  
+DENSE_UNITS: 256            # dense layer size before final softmax
+OPTIMIZER: "adam"  
           # "adam" or "adamw"

@@ -29,6 +29,7 @@ class PrepareBaseModelConfig:
     params_optimizer: str               # from params.yaml (adam / adamw etc.)
     params_label_smoothing: float
 
+
 @dataclass(frozen=True)
 class TrainingConfig:
     root_dir: Path
@@ -54,3 +55,14 @@ class TrainingConfig:
     # Model architecture
     params_dense_units: int            # matches DENSE_UNITS
     params_optimizer: str              # matches OPTIMIZER
+
+
+@dataclass(frozen=True)
+class EvaluationConfig:
+    path_of_model:Path
+    training_data:Path
+    all_params:dict
+    mlflow_uri:str
+    params_image_size:list
+    params_batch_size:int
+    
