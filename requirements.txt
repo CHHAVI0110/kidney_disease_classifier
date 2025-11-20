@@ -1,6 +1,6 @@
-tensorflow==2.12.0
 pandas
-dvc
+# dvc (remove bec of the docker file )
+# tensorflow==2.12.0(remove bec of the docker file )
 mlflow==2.2.2
 notebook
 numpy
@@ -16,4 +16,5 @@ scipy
 Flask
 Flask-Cors
 gdown
--e .
+uvicorn
+fastapi
